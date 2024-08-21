@@ -1,130 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
-<body>
-
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <script src="../A-22/A-22.0.js"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
+            background-color: rgba(238, 238, 238, 0.849);
+            font-family: Arial, sans-serif;
         }
-
-        .container {
-            background-color: #fff;
+ 
+        .borda {
+            background-color: rgb(255, 255, 255);
+            border: 1px solid black;
+            border-radius: 5px;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            max-width: 100%;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-            font-size: 24px;
+            width: 350px;
             text-align: center;
-            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
-        form {
-            display: flex;
-            flex-direction: column;
+ 
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
         }
-
+ 
+        .field {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+ 
         label {
+            display: block;
             margin-bottom: 5px;
             font-weight: bold;
         }
-
-        input {
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
+ 
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            border: 1px solid black;
+            border-radius: 2px;
+            background-color: azure;
+            margin: 5px 0;
+            height: 35px;
+            width: 100%;
+            padding: 0 10px;
+            box-sizing: border-box;
         }
-
-        button {
-            padding: 10px;
-            background-color: #06b841;
+ 
+        .cadastrar {
+            background-color: green;
             border: none;
-            border-radius: 4px;
-            color: #fff;
-            font-size: 16px;
+            border-radius: 2px;
+            height: 35px;
+            width: 100%;
+            margin-top: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
             cursor: pointer;
         }
-
-        button:hover {
-            background-color: #0056b3;
+ 
+        .cadastrar:hover {
+            background-color: rgb(0, 0, 0);
         }
     </style>
-
-
-    <div class="container">
-
+</head>
+ 
+<body>
+    <div class="borda">
         <h1>Cadastro</h1>
-
-        <form action="#" method="post">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required>
-
-            <button type="submit">Cadastrar</button>
+        <form onsubmit="return validarFormulario()">
+            <div class="field">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome">
+            </div>
+            <div class="field">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="field">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha">
+            </div>
+            <div>
+                <button type="submit" class="cadastrar">Cadastrar</button>
+            </div>
         </form>
-
-
+ 
+        <div id="mensagemErro"></div>
+ 
     </div>
-
-
-    <script>
-
-        function validarFormulario() {
-            const nome = document.getElementById("nome").value;
-            const email = document.getElementById("email").value;
-            const senha = document.getElementById("senha").value;
-            const mensagemErro = document.getElementById("mensagemErro");
-
-            mensagemErro.innerHTML = "";
-
-            if (nome === "") {
-                mensagemErro.innerHTML = "Por favor, preencha o campo Nome.";
-                return false;
-            }
-
-            if (email === "") {
-                mensagemErro.innerHTML = "Por favor, preencha o campo E-mail.";
-                return false;
-            }
-
-            if (senha === "") {
-                mensagemErro.innerHTML = "Por favor, preencha o campo Senha.";
-                return false;
-            }
-
-            return true;
-        }
-
-
-
-
-
-    </script>
-
 </body>
-
+ 
 </html>
