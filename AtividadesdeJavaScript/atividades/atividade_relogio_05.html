@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        body {
+            background-color: rgba(210, 210, 210, 0.431);
+            display: flex;
+        }
+
+        .caixa_do_relogio {
+            position: relative;
+            border-radius: 15px;
+            left: 550px;
+            width: 700px;
+            height: 250px;
+            background-color: rgb(255, 166, 0);
+            z-index: -1;
+            box-shadow: 2px 2px 2px 1px rgb(0, 0, 0);
+        }
+
+        .relogio {
+            position: relative;
+            left: 31%;
+            top: 40%;
+            display: flex;
+            background-color: rgba(248, 248, 248, 0);
+            width: 250px;
+            height: 100px;
+            font-size: 70px;
+            position: absolute;
+            font-style: initial;
+        }
+
+        #box {
+            display: flex;
+            width: 80px;
+            height: 80px;
+            background-color: rgba(235, 235, 235, 0.841);
+            border-radius: 2px;
+            box-shadow: 0px 4px rgb(255, 255, 255);
+        }
+
+    </style>
+
+    <div class="caixa_do_relogio">
+
+    
+
+    <div class="relogio">
+
+        <div id="box">
+            <div id="horas"></div>
+        </div>
+
+        <span id="separador1">:</span>
+
+        <div id="box">
+            <div id="minutos"></div>
+        </div>
+
+        <span id="separador2">:</span>
+
+        <div id="box">
+            <div id="segundos"></div>
+        </div>
+
+    </div>
+    </div>
+
+    <script>
+
+        let data = new Date();
+        let dia = data.getDate();
+        let diaSemana = data.getDay();
+        let mes = data.getMonth() + 1;
+        let ano = data.getFullYear();
+
+        let ds;
+        if (diaSemana === 0) { ds = 'Domingo' }
+        else if (diaSemana === 1) { ds = 'Segunda-feira' }
+        else if (diaSemana === 2) { ds = 'Terça-feira' }
+        else if (diaSemana === 3) { ds = 'Quarta-feira' }
+        else if (diaSemana === 4) { ds = 'Quinta-feira' }
+        else if (diaSemana === 5) { ds = 'Sexta-feira' }
+        else if (diaSemana === 6) { ds = 'Sabado-feira' }
+
+        let dataCompleta = ds + ' ' + dia + ' de ' + mes + ' de ' + ano;
+        document.write("<h1>" + dataCompleta + "</h1>");
+
+        const horas = document.getElementById("horas");
+        const minutos = document.getElementById("minutos");
+        const segundos = document.getElementById("segundos");
+
+        // Aplicando o intervalo para o relogio funcionar
+        const relegio = setInterval(function time() {
+
+            let tempo = new Date();
+            let h = tempo.getHours();
+            let m = tempo.getMinutes();
+            let s = tempo.getSeconds();
+
+            if (h < 10) h = "0" + h;
+            if (m < 10) h = "0" + m;
+            if (s < 10) s = "0" + s;
+
+            horas.textContent = h;
+            minutos.textContent = m;
+            segundos.textContent = s;
+        })
+
+    </script>
+
+</body>
+
+</html>
+</body>
+</html>
